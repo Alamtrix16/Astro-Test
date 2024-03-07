@@ -1,5 +1,17 @@
 ---
+const pageTitle = "Sobre mi"
 
+const identidad = {
+	firstName: "Alex",
+	country: "ESPAÑAAA",
+	occupation: "Si hombre a ti te lo voy a decir",
+	hobbies: ["ANHQV", "CHORIZO", "Maricon"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
+
+const happy = true;
+const maricon = false;
 ---
 
 <html lang="en">
@@ -8,16 +20,33 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<h1>Hola mariquita</h1>
-		
+		<h1>{pageTitle}</h1>
 		<h2>Tutorial para aprender a hacer esta puta mierda</h2>
 
 		<p>Bueno me piden que escriba cosas pero ni  putisima idea, asi que pongo mierda de relleno.</p>
 
 		<p>Tu padre es maricon asi que revisale el movil que a lo mejor por la noche se convierte en maribi.</p>
+
+		<p>Datos sobre mi</p>
+		<ul>
+			<li>Me llamo {identidad.firstName}.</li>
+			<li>Vivo en {identidad.country} y trabajo como {identidad.occupation}</li>
+			{identidad.hobbies.length >= 2 &&
+				<li>Dos de mis aficiones son: {identidad.hobbies[0]} y {identidad.hobbies[1]}</li>
+			}
+		</ul>
+
+		<p>Mis habilidades son:</p>
+		<ul>
+			{skills.map((skills) => <li>{skills}</li>)}
+		</ul>
+
+		{happy && <p>Soy feliz coño</p>}
+		{maricon && <p>Menos mal que esto no sale</p>}
 
 	</body>
 </html>
